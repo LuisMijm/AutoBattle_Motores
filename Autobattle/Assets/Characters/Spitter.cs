@@ -8,8 +8,8 @@ public class Spitter : Zombie
     {
         name_ = "Spitter";
         type_ = ZombieType.Spitter;
-        health_ = Random.Range(0, 10) + 5;
-        damage_ = Random.Range(0, 10) + 5;
+        health_ = Random.Range(5, 15);
+        damage_ = Random.Range(5, 15);
         range_ = RangeType.long_range;
         active_ = true;
     }

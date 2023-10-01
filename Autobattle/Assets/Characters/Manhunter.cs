@@ -8,12 +8,12 @@ public class Manhunter : Zombie
     {
         name_ = "Manhunter";
         type_ = ZombieType.Manhunter;
-        health_ = Random.Range(0, 10) + 10;
-        damage_ = Random.Range(0, 10) + 5;
+        health_ = Random.Range(10, 20);
+        damage_ = Random.Range(5, 15);
         range_ = RangeType.mid_range;
         active_ = true;
     }
-    
+
     public override void OnDeath(){}
 
 }

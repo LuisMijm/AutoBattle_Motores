@@ -137,7 +137,8 @@ public class MainScript : MonoBehaviour
             zombie.health_ = 0;
             zombie.active_ = false;
             zombie.OnDeath();
-            Debug.Log("Zombie " + position + ": " + zombie.name_ + " has been attack and is dead for real");
+            Debug.Log("Zombie " + position + ": " + zombie.name_ + 
+                        " has been attack and is dead for real");
         }else
         {
             Debug.Log("Zombie " + position + ": " + zombie.name_ + " has been attack; " + 
@@ -152,7 +153,8 @@ public class MainScript : MonoBehaviour
         {
             survivor.health_ = 0;
             survivor.active_ = false;
-            Debug.Log("Survivor " + position + ": " + survivor.name_ + " has been attack and is dead");
+            Debug.Log("Survivor " + position + ": " + survivor.name_ + 
+                        " has been attack and is dead");
         }else
         {
             Debug.Log("Survivor " + position + ": " + survivor.name_ + " has been attack; " + 
@@ -167,11 +169,12 @@ public class MainScript : MonoBehaviour
         {
             deffender.health_ = 0;
             deffender.active_ = false;
-            Debug.Log(characterClass + " " + position + ": " + deffender.name_ + " has been attack and is dead");
+            Debug.Log(characterClass + " " + position + ": " + deffender.name_ + 
+                        " has been attack and is dead");
         }else
         {
-            Debug.Log(characterClass + " " + position + ": " + deffender.name_ +" has been attack; " + 
-                        deffender.health_ + " health remaining");
+            Debug.Log(characterClass + " " + position + ": " + deffender.name_ + 
+                        " has been attack; " + deffender.health_ + " health remaining");
         }
     }
 

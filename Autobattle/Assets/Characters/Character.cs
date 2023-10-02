@@ -8,10 +8,19 @@ public class Character
     public int damage_;
     public bool active_;
     public RangeType range_;
+    public DamageType damageType_;
+    public Weapon weapon;
+    public Armor armor;
+
 
     public virtual void OnDeath()
     {
         
+    }
+
+    public virtual void Init()
+    {
+
     }
     
 }

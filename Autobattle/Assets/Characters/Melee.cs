@@ -24,6 +24,6 @@ public class Melee : Survivor
         {
             weapon = new Weapon();
         }
-        weapon = weapon.Init();
+        weapon.Init();
     }
 }

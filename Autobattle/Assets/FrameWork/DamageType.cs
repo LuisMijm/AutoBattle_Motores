@@ -8,11 +8,6 @@ public class DamageType
     public ElementalDamageType elementType_;
     public PhysicalDamageType physicalType_;
     public RangeType rangeType_;
-
-    // public DamageType()
-    // {
-        
-    // }
 }
 
 public enum ElementalDamageType {
@@ -29,9 +24,9 @@ public enum PhysicalDamageType {
     none
 }
 
-// public enum RangeType {
-//     short_range,
-//     mid_range,
-//     long_range,
-//     total_range
-// }
+public enum RangeType {
+    short_range,
+    mid_range,
+    long_range,
+    total_range
+}

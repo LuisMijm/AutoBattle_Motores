@@ -4,7 +4,7 @@
 public class Character
 {
     public string name_;
-    public int health_;
+    public float health_;
     public int damage_;
     public bool active_;
     public RangeType range_;
@@ -24,10 +24,4 @@ public class Character
 
     }
     
-}
-public enum RangeType {
-    short_range,
-    mid_range,
-    long_range,
-    total_range
 }

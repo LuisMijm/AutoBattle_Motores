@@ -5,9 +5,6 @@ using UnityEngine;
 public class MainScript : MonoBehaviour
 {
 
-    // public List<Survivor> survivorList_;
-    // public List<Zombie> zombieList_;
-
     public List<Character> survivorList_;
     public List<Character> zombieList_;
     
@@ -15,14 +12,10 @@ public class MainScript : MonoBehaviour
 
     void Start()
     {
-        // survivorList_ = new List<Survivor>();
-        // zombieList_ = new List<Zombie>();
-        
         survivorList_ = new List<Character>();
         zombieList_ = new List<Character>();
         GameRunning_ = true;
         FillBoard();
-        // ShowStats(0);
     }
 
     Survivor InitSurvivor()
@@ -94,38 +87,6 @@ public class MainScript : MonoBehaviour
 
             Zombie temp_zombie = InitZombie();
             zombieList_.Add(temp_zombie);
-        }
-
-
-        if (survivorList_.Count > 0 && zombieList_.Count > 0)
-        {
-            // Debug.Log("Survivor 1 " + survivorList_[0].name_ + 
-            //             " is ready to fight zombie 1 " + zombieList_[0].name_);
-            // Debug.Log("Survivor 2 " + survivorList_[1].name_ + 
-            //             " is ready to fight zombie 2 " + zombieList_[1].name_);
-            // Debug.Log("Survivor 3 " + survivorList_[2].name_ + 
-            //             " is ready to fight zombie 3 " + zombieList_[2].name_);
-        }
-        else
-        {
-            Debug.Log("Las listas de personaje no estan completas");
-        }
-    }
-
-    void ShowStats(int duelers)
-    {
-        if(survivorList_[duelers] != null && zombieList_[duelers] != null)
-        {
-            Debug.Log("survivor name: " + survivorList_[duelers].name_ + 
-                        " - zombie name: " + zombieList_[duelers].name_);
-            Debug.Log("survivor health: " + survivorList_[duelers].health_ + 
-                        " - zombie health: " + zombieList_[duelers].health_);
-            Debug.Log("survivor damage: " + survivorList_[duelers].damage_ + 
-                        " - zombie damage: " + zombieList_[duelers].damage_);
-            Debug.Log("survivor active: " + survivorList_[duelers].active_ + 
-                        " - zombie active: " + zombieList_[duelers].active_);
-            Debug.Log("survivor range: " + survivorList_[duelers].range_ + 
-                        " - zombie range: " + zombieList_[duelers].range_);
         }
     }
 
@@ -281,7 +242,6 @@ public class MainScript : MonoBehaviour
 
     void Update()
     {
-        // while(GameRunning_)
         if(Input.GetKeyDown(KeyCode.Space) && GameRunning_)
         {
             Debug.Log("Battle beggin");
@@ -311,17 +271,11 @@ public class MainScript : MonoBehaviour
                 GameRunning_ = false;
             }
 
-            Debug.Log(" ");
             Debug.Log(" ---------- ");
 
         }else if (Input.GetKeyDown(KeyCode.Space) && !GameRunning_)
         {
             Debug.Log("Game Ended");
         }
-        // if(Input.GetKeyDown(KeyCode.Space))
-        // {
-        //     Debug.Log("Next round");
-        //     GameRunning_ = true;
-        // }
     }
 }

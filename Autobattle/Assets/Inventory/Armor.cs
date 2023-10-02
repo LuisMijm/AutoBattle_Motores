@@ -1,5 +1,5 @@
 
-
+[System.Serializable]
 public class Armor 
 {
     public ArmorType name_;

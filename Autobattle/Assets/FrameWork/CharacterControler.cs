@@ -1,5 +1,5 @@
 
-
+using UnityEngine;
 
 public class CharacterControler
 {
@@ -24,15 +24,12 @@ public class CharacterControler
             temp_dt.amount_ *= 1.5f;
         }
 
-
-        // Debug.Log("");
-
         return temp_dt;
     }
 
     public void TakeDamage(Character character, DamageType dt)
     {
-        character.health_ -= dt.amount_;
+        character.health_ -= dt.amount_ - character.armor.defense_;
         
     }
 }

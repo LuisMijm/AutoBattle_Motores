@@ -3,16 +3,10 @@
 
 public class DamageType 
 {
-    // public enum RangeType {
-    // short_range,
-    // mid_range,
-    // long_range,
-    // total_range
-    // }
 
     public float amount_;
     public ElementalDamageType elementType_;
-    public FisicalDamageType fisicalType_;
+    public PhysicalDamageType physicalType_;
     public RangeType rangeType_;
 
     // public DamageType()
@@ -28,9 +22,16 @@ public enum ElementalDamageType {
     none
 }
 
-public enum FisicalDamageType {
+public enum PhysicalDamageType {
     blunt,
     piercing,
     slashing,
     none
 }
+
+// public enum RangeType {
+//     short_range,
+//     mid_range,
+//     long_range,
+//     total_range
+// }

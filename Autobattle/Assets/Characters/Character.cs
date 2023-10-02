@@ -11,6 +11,7 @@ public class Character
     public DamageType damageType_;
     public Weapon weapon;
     public Armor armor;
+    public int criticChance_;
 
 
     public virtual void OnDeath()

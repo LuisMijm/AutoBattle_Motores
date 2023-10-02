@@ -5,6 +5,11 @@ public class Medic : Survivor
 {
     public Medic()
     {
+        Init();
+    }
+
+    public override void Init()
+    {
         name_ = "Medic";
         health_ = Random.Range(5, 15);
         damage_ = Random.Range(5, 15);

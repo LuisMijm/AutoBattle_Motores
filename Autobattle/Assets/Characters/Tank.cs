@@ -5,6 +5,11 @@ public class Tank : Survivor
 {
     public Tank()
     {
+        Init();
+    }
+
+    public override void Init()
+    {
         name_ = "Tank";
         type_ = SurvivorType.Tank;
         health_ = Random.Range(10, 20);

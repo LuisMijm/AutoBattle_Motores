@@ -5,15 +5,25 @@ public class CharacterControler
 {
 
     public DamageType Attack(Character character, Weapon weapon, Armor armor, 
-                            ElementalDamageType elementType, FisicalDamageType fisicalType, 
-                            RangeType rangeType)
+                            ElementalDamageType elementType, RangeType rangeType)
     {
         DamageType temp_dt;
         temp_dt = new DamageType();
-        temp_dt.amount = character.damage_;
+        temp_dt.amount_ = character.damage_;
         temp_dt.elementType_ = elementType;
-        temp_dt.fisicalType_ = fisicalType;
+        temp_dt.physicalType_ = weapon.physicalType_;
         temp_dt.rangeType_ = rangeType;
+        
+        if(weapon.uses_ > 0)
+        {
+            temp_dt.amount_ += weapon.damage_;
+        }
+
+        if(Random.Range(0,character.criticChance_) == 0)
+        {
+            temp_dt.amount_ *= 1.5f;
+        }
+
 
         // Debug.Log("");
 

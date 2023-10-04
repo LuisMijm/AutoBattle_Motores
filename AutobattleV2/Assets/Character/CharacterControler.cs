@@ -39,3 +39,14 @@ public class CharacterControler
         }
     } 
 }
+
+
+// int CurrentDefence 
+// {
+//     get {
+//         return currentDefence_;
+//     }
+//     set {
+//         currentDefence_ = value;
+//     }
+// }

@@ -2,21 +2,97 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BoardController : MainScript
+public class BoardController 
 {
+    MainScript mc_;
+
+    void Start()
+    {
+        GameObject mainObj = GameObject.Find("MainObj");
+        mc_ = mainObj.GetComponent<MainScript>();
+    }
+
+    // public void FillBoard(List<Character> survivors, List<Character> zombies)
+    // {
+    //     for(int i = 0; i < 3; ++i)
+    //     {
+    //         Survivor temp_survivor = survivors.Init();
+    //         // Survivor temp_survivor = new Survivor();
+    //         // temp_survivor.Init();
+    //         survivors.Add(temp_survivor);
+
+    //         Zombie temp_zombie = new Zombie();
+    //         temp_zombie.Init();
+    //         zombies.Add(temp_zombie);
+    //     }
+    // }
+
+
     public void FillBoard(List<Character> survivors, List<Character> zombies)
     {
-        for(int i = 0; i < 3; ++i)
+        for (int i = 0; i < 3; ++i)
         {
-            Survivor temp_survivor = new Survivor();
+            // Init Survivor
+            Survivor temp_survivor;
+            SurvivorType s_selector = (SurvivorType)Random.Range(0, (int)SurvivorType.total);
+
+            switch(s_selector)
+            {
+                case SurvivorType.Tank:
+                    temp_survivor = new Tank();
+                    break;
+
+                case SurvivorType.Melee:
+                    temp_survivor = new Melee();
+                    break;
+
+                case SurvivorType.Archer:
+                    temp_survivor = new Archer();
+                    break;
+
+                case SurvivorType.Medic:
+                    temp_survivor = new Medic();
+                    break;
+
+                default:
+                    temp_survivor = new Tank();
+                    break;
+            }
             temp_survivor.Init();
             survivors.Add(temp_survivor);
 
-            Zombie temp_zombie = new Zombie();
+
+            // Init Zombie
+            Zombie temp_zombie;
+            ZombieType z_selector = (ZombieType)Random.Range(0, (int)ZombieType.total);
+
+            switch (z_selector)
+            {
+                case ZombieType.Bulky:
+                    temp_zombie = new Bulky();
+                    break;
+
+                case ZombieType.Biter:
+                    temp_zombie = new Biter();
+                    break;
+
+                case ZombieType.Spitter:
+                    temp_zombie = new Spitter();
+                    break;
+
+                case ZombieType.Manhunter:
+                    temp_zombie = new Manhunter();
+                    break;
+
+                default:
+                    temp_zombie = new Bulky();
+                    break;
+            }
             temp_zombie.Init();
             zombies.Add(temp_zombie);
         }
     }
+
 
     public bool CheckRemaining(List<Character> list)
     {
@@ -66,7 +142,7 @@ public class BoardController : MainScript
         {
             int battleRange = Random.Range(0, 3);
             
-            BattleResult result = Battle(survivorList_[i], zombieList_[i], battleRange);
+            BattleResult result = Battle(mc_.survivorList_[i], mc_.zombieList_[i], battleRange);
 
             switch(result)
             {
@@ -143,7 +219,7 @@ public class BoardController : MainScript
 
     public void UpdateBoard()
     {
-        if(Input.GetKeyDown(KeyCode.Space) && GameRunning_)
+        if(Input.GetKeyDown(KeyCode.Space) && mc_.GameRunning_)
         {
             Debug.Log("Battle beggin");
             Fight();
@@ -152,29 +228,29 @@ public class BoardController : MainScript
             // Debug.Break();
 
 
-            bool zombieRemaining = CheckRemaining(zombieList_);
-            bool survivorRemaining = CheckRemaining(survivorList_);
+            bool zombieRemaining = CheckRemaining(mc_.zombieList_);
+            bool survivorRemaining = CheckRemaining(mc_.survivorList_);
 
             if(!zombieRemaining && !survivorRemaining)
             {
                 Debug.Log("Everybody died");
-                GameRunning_ = false;
+                mc_.GameRunning_ = false;
 
             }
             else if(zombieRemaining && !survivorRemaining)
             {
                 Debug.Log("The Zombies win");
-                GameRunning_ = false;
+                mc_.GameRunning_ = false;
             }
             else if(survivorRemaining && !zombieRemaining)
             {
                 Debug.Log("The Survivors win");
-                GameRunning_ = false;
+                mc_.GameRunning_ = false;
             }
 
             Debug.Log(" ---------- ");
 
-        }else if (Input.GetKeyDown(KeyCode.Space) && !GameRunning_)
+        }else if (Input.GetKeyDown(KeyCode.Space) && !mc_.GameRunning_)
         {
             Debug.Log("Game Ended");
         }

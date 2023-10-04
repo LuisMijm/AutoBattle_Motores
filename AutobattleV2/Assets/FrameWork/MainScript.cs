@@ -16,6 +16,7 @@ public class MainScript : MonoBehaviour
         survivorList_ = new List<Character>();
         zombieList_ = new List<Character>();
         GameRunning_ = true;
+        boardControl_ = new BoardController();
         boardControl_.FillBoard(survivorList_, zombieList_);
     }
 
